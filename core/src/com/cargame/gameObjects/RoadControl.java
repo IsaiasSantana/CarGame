@@ -70,6 +70,9 @@ public class RoadControl
 
     public void resume()
     {
-        RoadControl.velocity = RoadControl.velocityPause;
+      if(RoadControl.velocityPause <= 0f)
+          RoadControl.velocity = 100.0f;
+      else
+          RoadControl.velocity = RoadControl.velocityPause;
     }
 }
