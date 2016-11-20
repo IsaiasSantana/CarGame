@@ -59,12 +59,14 @@ public class GameScreen implements Screen
     public void pause()
     {
         Gdx.app.log("GameScreen", "pause called");
+        gameWorld.getRoad().pause();
     }
 
     @Override
     public void resume()
     {
         Gdx.app.log("GameScreen", "resume called");
+        gameWorld.getRoad().resume();
     }
 
     @Override

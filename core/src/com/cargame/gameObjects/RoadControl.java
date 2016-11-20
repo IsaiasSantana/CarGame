@@ -10,7 +10,7 @@ import com.cargame.helpers.AssetLoader;
 public class RoadControl
 {
     private static RoadControl roadControl;
-    private static float velocity;
+    private static float velocity,velocityPause;
     private Road road1;
 
     private RoadControl()
@@ -60,5 +60,16 @@ public class RoadControl
         this.road1.reset(this.road1.getPositionY());
         velocity = 100.0f;
         this.road1.setVelocity(100.0f);
+    }
+
+    public void pause()
+    {
+        RoadControl.velocityPause = RoadControl.velocity;
+        this.setVelocity(0.0f);
+    }
+
+    public void resume()
+    {
+        RoadControl.velocity = RoadControl.velocityPause;
     }
 }
