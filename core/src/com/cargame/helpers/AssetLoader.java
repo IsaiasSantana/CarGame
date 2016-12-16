@@ -18,7 +18,7 @@ import com.badlogic.gdx.net.HttpStatus;
 
 public class AssetLoader
 {
-
+    private static Preferences prefs;
     public static Animation explosionAnimation;
     public static BitmapFont fontNewGame;
     public static BitmapFont fontAbout;
@@ -29,7 +29,6 @@ public class AssetLoader
     public static Music intro;
     public static Music musicGameOver;
     public static Music musicPlayGame;
-    public static Preferences prefs;
     public static Rectangle about;
     public static Rectangle mainMenu;
     public static Rectangle newGame;
@@ -56,7 +55,7 @@ public class AssetLoader
         musicPlayGame = Gdx.audio.newMusic(Gdx.files.internal("I_Do_not_Understand.mp3"));
         musicGameOver = Gdx.audio.newMusic(Gdx.files.internal("8-bit-music.mp3"));
         Texture explosion = new Texture(Gdx.files.internal("explosao2.gif"));
-        explosionAnimation = new Animation(0.06f, new TextureRegion(explosion, 0, 0, 100, 100), new TextureRegion(explosion, 100, 0, 100, 100), new TextureRegion(explosion, (int) HttpStatus.SC_OK, 0, 100, 100), new TextureRegion(explosion, (int) HttpStatus.SC_MULTIPLE_CHOICES, 0, 100, 100), new TextureRegion(explosion, (int) HttpStatus.SC_BAD_REQUEST, 0, 100, 100), new TextureRegion(explosion, (int) HttpStatus.SC_INTERNAL_SERVER_ERROR, 0, 100, 100));
+        explosionAnimation = new Animation(0.06f, new TextureRegion(explosion, 0, 0, 100, 100), new TextureRegion(explosion, 100, 0, 100, 100), new TextureRegion(explosion, HttpStatus.SC_OK, 0, 100, 100), new TextureRegion(explosion, HttpStatus.SC_MULTIPLE_CHOICES, 0, 100, 100), new TextureRegion(explosion, HttpStatus.SC_BAD_REQUEST, 0, 100, 100), new TextureRegion(explosion,  HttpStatus.SC_INTERNAL_SERVER_ERROR, 0, 100, 100));
         explosionAnimation.setPlayMode(PlayMode.NORMAL);
 
         fontNewGame = new BitmapFont(Gdx.files.internal("text.fnt"));
@@ -84,7 +83,8 @@ public class AssetLoader
         }
     }
 
-    public static void dispose() {
+    public static void dispose()
+    {
         explosion.dispose();
         intro.dispose();
         musicGameOver.dispose();

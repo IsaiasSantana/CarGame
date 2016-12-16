@@ -41,20 +41,20 @@ public class EnemyCar extends Car
 
         if (isNotVisible())
         {
-            int cont2;
+//            int cont2;
             if (cont >= 0)
             {
-                cont2 = cont - 1;
+              //  cont2 = cont - 1;
                 reset((GameWorld.getDistances().get(cont)).floatValue() + 200.0f);
                 GameWorld.countHighScore();
-                cont = cont2;
+               // cont = cont2;
             }
             else
             {
                 cont = GameWorld.getTotalRivalCars() - 1;
-                cont2 = cont - 1;
+            //    cont2 = cont - 1;
                 reset((float) cont);
-                cont = cont2;
+                //cont = cont2;
             }
             if (GameWorld.getCountLevel() > 10)
             {

@@ -73,10 +73,13 @@ public class GameScreen implements Screen
     public void hide()
     {
         Gdx.app.log("GameScreen", "hide called");
+        gameWorld.getRoad().pause();
     }
 
     @Override
-    public void dispose() {
-
+    public void dispose()
+    {
+        gameRenderer.dispose();
+        gameWorld.dispose();
     }
 }

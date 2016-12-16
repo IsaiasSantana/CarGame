@@ -83,6 +83,7 @@ public class InputHandler implements InputProcessor
         {
             AssetLoader.fontNewGame.setColor(Color.WHITE);
             AssetLoader.musicGameOver.stop();
+            GameWorld.resetScoreAndLevel();
             this.world.setCurrentState(GameWorld.States.OPENING);
         }
         else if (this.world.isRunning())

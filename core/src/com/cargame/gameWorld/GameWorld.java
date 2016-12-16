@@ -271,6 +271,11 @@ public class GameWorld
         return countLevel;
     }
 
+    public static void resetScoreAndLevel(){
+        highScore = 0;
+        level = 1;
+    }
+
     public static void setCountLevel(int level) {
         countLevel = level;
     }
